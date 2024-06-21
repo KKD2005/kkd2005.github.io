@@ -1,9 +1,0 @@
-.hidden {
-    opacity: 0;
-    transform: translateY(20px); /* Optional: slide in effect */
-    transition: opacity 0.5s, transform 0.5s;
-}
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
