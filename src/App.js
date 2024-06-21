@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Typography, Container, List, ListItem, ListItemIcon, ListItemText, Link, Grid, Icon, Paper } from '@mui/material';
+import { Avatar, Typography, Container,  Link, Grid } from '@mui/material';
 import SectionTitle from './components/SectionTitle'; // Import the SectionTitle component
 import BulletPointList from './components/BulletPointList';
 import ExperienceCard from './components/ExperienceCard';
@@ -54,7 +54,7 @@ function App() {
 
                 <section id="faves" className="section" style={{ marginTop: '40px' }}>
                     <SectionTitle title="My Favorite Things :)" />
-                    <Grid container spacing={3}>
+                    <Grid container rowSpacing={0} columnSpacing={2}>
                         {favoritesData.favorites.map((favorite, index) => (
                             <Grid item xs={12} sm={3} key={index}>
                                 <FavoriteCard title={favorite.title} description={favorite.description}></FavoriteCard>
@@ -64,23 +64,22 @@ function App() {
                     </Grid>
                 </section>
                 <section id="contact" className="section" style={{ marginTop: '40px' }}>
-                    <SectionTitle title="Contact Information" />
-                    <Paper elevation={3} style={{ padding: '20px', backgroundColor: '#f0f0f0', marginTop: '20px' }}>
-                        <List>
-                            <ListItem button component={Link} href="mailto:konnie@example.com">
-                                <ListItemIcon>
-                                    <Icon>email</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="konnie@example.com" />
-                            </ListItem>
-                            <ListItem button component={Link} href="https://www.linkedin.com/in/konnie" target="_blank">
-                                <ListItemIcon>
-                                    <Icon>linkedin</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="linkedin.com/in/konnie" />
-                            </ListItem>
-                        </List>
-                    </Paper>
+                    <SectionTitle title="Let's get in touch! My information:" />
+
+                    <Grid container spacing={3} style={{ marginTop: '0px' }}>
+                        <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
+                            <Typography variant="body1" marginRight={1}><strong>Email:</strong></Typography>
+                            <Typography variant="body1" component={Link} href="mailto:konnie@mit.edu">konnie@mit.edu</Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
+                            <Typography variant="body1" marginRight={1}><strong>LinkedIn:</strong></Typography>
+                            <Typography variant="body1" component={Link} href="https://www.linkedin.com/in/konnie" target="_blank">linkedin.com/in/konnie</Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
+                            <Typography variant="body1" marginRight={1}><strong>Github:</strong></Typography>
+                            <Typography variant="body1" component={Link} href="https://github.com/KKD2005" target="_blank">github.com/KKD2005</Typography>
+                        </Grid>
+                    </Grid>
                 </section>
             </Container>
 
