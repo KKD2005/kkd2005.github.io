@@ -3,7 +3,9 @@ import { Avatar, Typography, Container, List, ListItem, ListItemIcon, ListItemTe
 import SectionTitle from './components/SectionTitle'; // Import the SectionTitle component
 import BulletPointList from './components/BulletPointList';
 import ExperienceCard from './components/ExperienceCard';
-import data from './data.json';
+import datawork from './datawork.json';
+import favoritesData from './datafavorites.json'
+import FavoriteCard from './components/FavoriteCard';
 
 
 function App() {
@@ -35,7 +37,7 @@ function App() {
                 <section id="work" className="section" style={{ marginTop: '40px' }}>
                     <SectionTitle title="Work Experience" />
                     <Grid container spacing={4} justifyContent="center">
-                        {data.map((experience, index) => (
+                        {datawork.map((experience, index) => (
                             <Grid item key={index} xs={12} sm={12}>
                                 <ExperienceCard
                                     title={experience.title}
@@ -48,6 +50,19 @@ function App() {
                     </Grid>
                 </section>
 
+                
+
+                <section id="faves" className="section" style={{ marginTop: '40px' }}>
+                    <SectionTitle title="My Favorite Things :)" />
+                    <Grid container spacing={3}>
+                        {favoritesData.favorites.map((favorite, index) => (
+                            <Grid item xs={12} sm={3} key={index}>
+                                <FavoriteCard title={favorite.title} description={favorite.description}></FavoriteCard>
+                                
+                            </Grid>
+                        ))}
+                    </Grid>
+                </section>
                 <section id="contact" className="section" style={{ marginTop: '40px' }}>
                     <SectionTitle title="Contact Information" />
                     <Paper elevation={3} style={{ padding: '20px', backgroundColor: '#f0f0f0', marginTop: '20px' }}>
@@ -66,27 +81,6 @@ function App() {
                             </ListItem>
                         </List>
                     </Paper>
-                </section>
-
-                <section id="hobbies" className="section" style={{ marginTop: '40px' }}>
-                    <SectionTitle title="Hobbies" />
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ lineHeight: '1.6' }}><strong>Sports:</strong> I enjoy fencing and dancing. These activities keep me active and allow me to connect with others who share similar interests.</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ lineHeight: '1.6' }}><strong>Movies:</strong> I'm a big fan of movies like "Everything Everywhere All At Once" and "La La Land." I appreciate films that are both thought-provoking and visually stunning.</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ lineHeight: '1.6' }}><strong>Music:</strong> I love listening to Keshi and Joji. Their music helps me unwind and inspires me creatively.</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ lineHeight: '1.6' }}><strong>Travel:</strong> I have a passion for traveling and exploring new cultures. My favorite destination so far is Japan, where I enjoy the blend of traditional and modern experiences.</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ lineHeight: '1.6' }}><strong>Finance:</strong> I'm keen on learning more about finance and engage in personal investing. It's a field that continuously challenges me and keeps me informed about global economic trends.</Typography>
-                        </Grid>
-                    </Grid>
                 </section>
             </Container>
 

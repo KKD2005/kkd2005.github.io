@@ -1,0 +1,22 @@
+{
+    "favorites": [
+      {
+        "title": "Sports",
+        "description": "I enjoy fencing and dancing. I love ballet, contemporary, and hip-hop."
+      },
+      {
+        "title": "Movies",
+        "description": "I'm a big fan of the movies 'Everything Everywhere All At Once' and 'La La Land.'"
+      },
+      {
+        "title": "Music",
+        "description": "I love listening to Keshi, Taylor Swift, Twice, Mitski, Tate Mcrae, and Joji."
+      },
+      {
+        "title": "Travel",
+        "description": "I have a passion for traveling and exploring new cultures. My favorite destination so far is Japan."
+      }
+      
+    ]
+  }
+  
