@@ -1,0 +1,32 @@
+[
+    {
+      "title": "MIT Sloan School of Management, Researcher",
+      "subheader": "Cambridge, MA | February 2024 - Present",
+      "points": [
+        "Engaged in research of graphs in game theory to model the systemic cyber risk problem insurance companies face",
+        "Presented results from extensive Monte Carlo simulations orally at the Winter Simulation Conference 2024",
+        "Created risk assessment strategies based on results for company partners, including Liberty Mutual and Mastercard"
+      ]
+    },
+    {
+      "title": "Hudson River Trading, Women in Trading Technology Intern",
+      "subheader": "New York City, NY | January 2024",
+      "points": [
+        "Interned at Hudson River Trading, a quantitative trading firm accounting for 8% of all trading in the US in 2021",
+        "Created predictive models and a high-frequency trading strategy that generated profit in live trading and in simulation",
+        "Produced software tools to support developers in conducting signal research and creating trading strategies efficiently",
+        "Built a level book and a matching engine with optimal efficiency that updates with real-time data"
+      ]
+    },
+    
+    {
+      "title": "Computer Science and Artificial Intelligence Laboratory, Researcher",
+      "subheader": "Cambridge, MA | August 2023 - December 2023",
+      "points": [
+        "Created a social network called PawConnect using Graffiti API, meant to enable users to build their own social media",
+        "Built an image feed and interactive map to let users share cute animal photos, pet-friendly attractions, and more",
+        "Discovered limitations that prompted creators to update Graffiti with better support for reactive variables"
+      ]
+    }
+  ]
+  
