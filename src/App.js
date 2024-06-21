@@ -6,9 +6,11 @@ import ExperienceCard from './components/ExperienceCard';
 import datawork from './datawork.json';
 import favoritesData from './datafavorites.json'
 import FavoriteCard from './components/FavoriteCard';
-
+import SkillsComponent from './components/SkillsComponent';
+import skillsdata from "./skillsdata.json"
 
 function App() {
+  
     return (
         <div>
             
@@ -51,7 +53,6 @@ function App() {
                 </section>
 
                 
-
                 <section id="faves" className="section" style={{ marginTop: '40px' }}>
                     <SectionTitle title="My Favorite Things :)" />
                     <Grid container rowSpacing={0} columnSpacing={2}>
@@ -63,10 +64,37 @@ function App() {
                         ))}
                     </Grid>
                 </section>
+                <section id="skills" className="section" style={{ marginTop: '40px' }}>
+                  <SectionTitle title="Technical Skills" />
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                      {skillsdata.ComputerLanguages && (
+                        <SkillsComponent 
+                          header="Computer Languages" 
+                          skillsList={skillsdata.ComputerLanguages} 
+                        />
+                      )}
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      {skillsdata.Tools && (
+                        <SkillsComponent 
+                          header="Tools" 
+                          skillsList={skillsdata.Tools} 
+                        />
+                      )}
+                      {skillsdata.Skills && (
+                        <SkillsComponent 
+                          header="Skills" 
+                          skillsList={skillsdata.Skills} 
+                        />
+                      )}
+                    </Grid>
+                  </Grid>
+                </section>
                 <section id="contact" className="section" style={{ marginTop: '40px' }}>
                     
-                    <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4 , fontFamily: 'cursive', marginBottom:2}}>
-                      Let's get in touch! My information:
+                    <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4 , marginBottom:2}}>
+                      <strong>Let's get in touch! My information:</strong>
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={4}>
@@ -91,6 +119,8 @@ function App() {
 
                     
                 </section>
+                
+                
             </Container>
 
             <footer style={{ textAlign: 'center', padding: '20px 0', backgroundColor: '#4CAF50', color: 'white' }}>
@@ -99,5 +129,4 @@ function App() {
         </div>
     );
 }
-
 export default App;
