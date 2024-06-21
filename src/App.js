@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Typography, Container,  Link, Grid } from '@mui/material';
+import { Avatar, Typography, Container,  Link, Grid, Paper } from '@mui/material';
 import SectionTitle from './components/SectionTitle'; // Import the SectionTitle component
 import BulletPointList from './components/BulletPointList';
 import ExperienceCard from './components/ExperienceCard';
@@ -64,22 +64,32 @@ function App() {
                     </Grid>
                 </section>
                 <section id="contact" className="section" style={{ marginTop: '40px' }}>
-                    <SectionTitle title="Let's get in touch! My information:" />
-
-                    <Grid container spacing={3} style={{ marginTop: '0px' }}>
-                        <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
-                            <Typography variant="body1" marginRight={1}><strong>Email:</strong></Typography>
-                            <Typography variant="body1" component={Link} href="mailto:konnie@mit.edu">konnie@mit.edu</Typography>
+                    
+                    <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4 , fontFamily: 'cursive', marginBottom:2}}>
+                      Let's get in touch! My information:
+                    </Typography>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={4}>
+                        <Paper elevation={3} style={{ padding: '12px', backgroundColor: '#f0f0f0' }}>
+                                <Typography variant="body1" marginRight={1}  gutterBottom><strong>Email:</strong></Typography>
+                                <Typography variant="body1" component={Link} href="mailto:konnie@mit.edu">konnie@mit.edu</Typography>
+                            </Paper>
                         </Grid>
-                        <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
-                            <Typography variant="body1" marginRight={1}><strong>LinkedIn:</strong></Typography>
-                            <Typography variant="body1" component={Link} href="https://www.linkedin.com/in/konnie" target="_blank">linkedin.com/in/konnie</Typography>
+                        <Grid item xs={12} sm={4}>
+                            <Paper elevation={3} style={{ padding: '12px', backgroundColor: '#f0f0f0' }}>
+                                <Typography variant="body1" marginRight={1} gutterBottom><strong>LinkedIn:</strong></Typography>
+                                <Typography variant="body1" component={Link} href="https://www.linkedin.com/in/konnie" target="_blank">linkedin.com/in/konnie</Typography>
+                            </Paper>
                         </Grid>
-                        <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
-                            <Typography variant="body1" marginRight={1}><strong>Github:</strong></Typography>
-                            <Typography variant="body1" component={Link} href="https://github.com/KKD2005" target="_blank">github.com/KKD2005</Typography>
+                        <Grid item xs={12} sm={4}>
+                            <Paper elevation={3} style={{ padding: '12px', backgroundColor: '#f0f0f0' }}>
+                                <Typography variant="body1" marginRight={1} gutterBottom><strong>Github:</strong></Typography>
+                                <Typography variant="body1" component={Link} href="https://github.com/KKD2005" target="_blank">github.com/KKD2005</Typography>
+                            </Paper>
                         </Grid>
                     </Grid>
+
+                    
                 </section>
             </Container>
 
