@@ -4,7 +4,7 @@ import { Card, CardHeader, CardContent } from '@mui/material';
 const ExperienceCard = ({ title, subheader, children }) => {
     return (
         <div style={{ marginTop: '20px' }}>
-            <Card>
+            <Card sx={{boxShadow: 3}}>
                 <CardHeader
                     title={title}
                     subheader={subheader}

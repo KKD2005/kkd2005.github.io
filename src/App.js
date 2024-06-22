@@ -1,20 +1,41 @@
 import React from 'react';
-import { Avatar, Typography, Container,  Link, Grid, Paper } from '@mui/material';
+import { Avatar, Typography, Container, Link, Grid, Paper } from '@mui/material';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import SectionTitle from './components/SectionTitle'; // Import the SectionTitle component
 import BulletPointList from './components/BulletPointList';
 import ExperienceCard from './components/ExperienceCard';
 import datawork from './datawork.json';
-import favoritesData from './datafavorites.json'
+import favoritesData from './datafavorites.json';
 import FavoriteCard from './components/FavoriteCard';
 import SkillsComponent from './components/SkillsComponent';
-import skillsdata from "./skillsdata.json"
+import skillsdata from "./skillsdata.json";
+import Publication from './components/Publication';
+import publicationsData from './publicationsdata.json';
+
+const Section = ({ children, id }) => {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.5 // Adjust threshold here
+    });
+
+    return (
+        <motion.section
+            id={id}
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+            transition={{ duration: 0.6 }}
+            style={{ marginTop: '40px' }}
+        >
+            {children}
+        </motion.section>
+    );
+};
 
 function App() {
-  
     return (
         <div>
-            
-
             <Container style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                 <Grid container spacing={4} alignItems="center" justifyContent="center" minHeight="100vh">
                     <Grid item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
@@ -36,7 +57,7 @@ function App() {
                     </Grid>
                 </Grid>
 
-                <section id="work" className="section" style={{ marginTop: '40px' }}>
+                <Section id="work">
                     <SectionTitle title="Work Experience" />
                     <Grid container spacing={4} justifyContent="center">
                         {datawork.map((experience, index) => (
@@ -50,56 +71,60 @@ function App() {
                             </Grid>
                         ))}
                     </Grid>
-                </section>
+                </Section>
 
-                
-                <section id="faves" className="section" style={{ marginTop: '40px' }}>
+                <Section id="publications">
+                    <SectionTitle title="Publications and Presentations" />
+                    <Publication items={publicationsData} />
+                </Section>
+
+                <Section id="faves">
                     <SectionTitle title="My Favorite Things :)" />
                     <Grid container rowSpacing={0} columnSpacing={2}>
                         {favoritesData.favorites.map((favorite, index) => (
                             <Grid item xs={12} sm={3} key={index}>
                                 <FavoriteCard title={favorite.title} description={favorite.description}></FavoriteCard>
-                                
                             </Grid>
                         ))}
                     </Grid>
-                </section>
-                <section id="skills" className="section" style={{ marginTop: '40px' }}>
-                  <SectionTitle title="Technical Skills" />
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
-                      {skillsdata.ComputerLanguages && (
-                        <SkillsComponent 
-                          header="Computer Languages" 
-                          skillsList={skillsdata.ComputerLanguages} 
-                        />
-                      )}
+                </Section>
+
+                <Section id="skills">
+                    <SectionTitle title="Technical Skills" />
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} md={6}>
+                            {skillsdata.ComputerLanguages && (
+                                <SkillsComponent
+                                    header="Computer Languages"
+                                    skillsList={skillsdata.ComputerLanguages}
+                                />
+                            )}
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            {skillsdata.Tools && (
+                                <SkillsComponent
+                                    header="Tools"
+                                    skillsList={skillsdata.Tools}
+                                />
+                            )}
+                            {skillsdata.Skills && (
+                                <SkillsComponent
+                                    header="Skills"
+                                    skillsList={skillsdata.Skills}
+                                />
+                            )}
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                      {skillsdata.Tools && (
-                        <SkillsComponent 
-                          header="Tools" 
-                          skillsList={skillsdata.Tools} 
-                        />
-                      )}
-                      {skillsdata.Skills && (
-                        <SkillsComponent 
-                          header="Skills" 
-                          skillsList={skillsdata.Skills} 
-                        />
-                      )}
-                    </Grid>
-                  </Grid>
-                </section>
-                <section id="contact" className="section" style={{ marginTop: '40px' }}>
-                    
-                    <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4 , marginBottom:2}}>
-                      <strong>Let's get in touch! My information:</strong>
+                </Section>
+
+                <Section id="contact">
+                    <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4, marginBottom: 2 }}>
+                        <strong>Let's get in touch! My information:</strong>
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={4}>
-                        <Paper elevation={3} style={{ padding: '12px', backgroundColor: '#f0f0f0' }}>
-                                <Typography variant="body1" marginRight={1}  gutterBottom><strong>Email:</strong></Typography>
+                            <Paper elevation={3} style={{ padding: '12px', backgroundColor: '#f0f0f0' }}>
+                                <Typography variant="body1" marginRight={1} gutterBottom><strong>Email:</strong></Typography>
                                 <Typography variant="body1" component={Link} href="mailto:konnie@mit.edu">konnie@mit.edu</Typography>
                             </Paper>
                         </Grid>
@@ -116,11 +141,7 @@ function App() {
                             </Paper>
                         </Grid>
                     </Grid>
-
-                    
-                </section>
-                
-                
+                </Section>
             </Container>
 
             <footer style={{ textAlign: 'center', padding: '20px 0', backgroundColor: '#4CAF50', color: 'white' }}>
@@ -129,4 +150,5 @@ function App() {
         </div>
     );
 }
+
 export default App;
