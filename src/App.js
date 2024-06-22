@@ -131,7 +131,7 @@ function App() {
                         <Grid item xs={12} sm={4}>
                             <Paper elevation={3} style={{ padding: '12px', backgroundColor: '#f0f0f0' }}>
                                 <Typography variant="body1" marginRight={1} gutterBottom><strong>LinkedIn:</strong></Typography>
-                                <Typography variant="body1" component={Link} href="https://www.linkedin.com/in/konnie" target="_blank">linkedin.com/in/konnie</Typography>
+                                <Typography variant="body1" component={Link} href="https://www.linkedin.com/in/konnie-duan" target="_blank">linkedin.com/in/konnie-duan</Typography>
                             </Paper>
                         </Grid>
                         <Grid item xs={12} sm={4}>
