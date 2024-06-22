@@ -16,7 +16,7 @@ import publicationsData from './publicationsdata.json';
 const Section = ({ children, id }) => {
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: 0.5 // Adjust threshold here
+        threshold: 0.3 // Adjust threshold here
     });
 
     return (
