@@ -156,7 +156,10 @@ function App() {
         </Section>
 
         <Section id="contact">
-          <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4, marginBottom: 2 }}>
+          <Typography
+            variant="h4"
+            className="sectionTitle"
+            sx={{ marginTop: 4, textAlign: 'center' ,marginBottom: 2 }}>
             <strong>Let's get in touch! My information:</strong>
           </Typography>
           <Grid container spacing={3}>
