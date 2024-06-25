@@ -3,7 +3,7 @@ import { Typography, Grid } from '@mui/material';
 
 const AwardsComponent = ({ awards }) => {
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={3} style={{ marginTop: '20px' }}>
             {awards.map((award, index) => (
                 <Grid item xs={12} sm={6} key={index}>
                    

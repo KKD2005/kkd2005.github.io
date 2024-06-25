@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Box, Card, CardContent, Link } from '@mui/material';
 const Publication = ({ items }) => {
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: '20px' }}>
             {items.map((item, index) => (
                 <Card key={index} sx={{ minWidth: 275, boxShadow: 3 }}>
                     <CardContent>

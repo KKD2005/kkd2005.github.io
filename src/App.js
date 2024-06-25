@@ -15,6 +15,7 @@ import Publication from './components/Publication';
 import publicationsData from './publicationsdata.json';
 import awardsData from './awardsdata.json';
 import AwardsComponent from './components/AwardsComponent';
+import ActivitiesSection from './components/ActivitiesSection';
 
 const theme = createTheme({
   palette: {
@@ -74,7 +75,7 @@ function App() {
               Hi, I'm Konnie Duan
             </Typography>
             <Typography variant="body1" style={{ textAlign: 'center', marginTop: '20px' }}>
-              Hi! I am an undergraduate at MIT double majoring in Computer Science and Engineering (6-3) and Finance (15-3). I excel in dynamic environments and love building strong relationships with the people I work with. I hope to continue to learn and grow, so I'm always looking for opportunities to expand my horizons!
+              I am an undergraduate at MIT double majoring in Computer Science and Engineering (6-3) and Finance (15-3). I excel in dynamic environments and love building strong relationships with the people I work with. I hope to continue to learn and grow, so I'm always looking for opportunities to expand my horizons!
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} style={{ display: 'flex', justifyContent: 'center' }}>
@@ -108,7 +109,8 @@ function App() {
           <SectionTitle title="Publications and Presentations" />
           <Publication items={publicationsData} />
         </Section>
-
+        <Section id="activites"><ActivitiesSection></ActivitiesSection></Section>
+        
         <Section id="faves">
           <SectionTitle title="My Favorite Things :)" />
           <Grid container rowSpacing={0} columnSpacing={2}>
