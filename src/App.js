@@ -1,49 +1,24 @@
 import React from 'react';
-import { Avatar, Typography, Container, Link, Grid, CssBaseline } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { useInView } from 'react-intersection-observer';
+import { CssBaseline, Container, Grid, Avatar, Typography, Link } from '@mui/material';
 import { motion } from 'framer-motion';
-import SectionTitle from './components/SectionTitle'; 
+import { useInView } from 'react-intersection-observer';
+import SectionTitle from './components/SectionTitle';
 import BulletPointList from './components/BulletPointList';
 import ExperienceCard from './components/ExperienceCard';
 import datawork from './datawork.json';
 import favoritesData from './datafavorites.json';
 import FavoriteCard from './components/FavoriteCard';
 import SkillsComponent from './components/SkillsComponent';
-import skillsdata from "./skillsdata.json";
+import skillsdata from './skillsdata.json';
 import Publication from './components/Publication';
 import publicationsData from './publicationsdata.json';
 import awardsData from './awardsdata.json';
 import AwardsComponent from './components/AwardsComponent';
-import ActivitiesSection from './components/ActivitiesSection';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#4CAF50',
-    },
-    background: {
-      default: '#f4f4f4',
-    },
-    text: {
-      primary: '#333',
-    },
-  },
-  typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
-  },
-  components: {
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          textDecoration: 'none',
-          color: '#4CAF50',
-        },
-      },
-    },
-  },
-});
-
+import { ThemeContextProvider, useThemeContext } from './components/ThemeContext';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 const Section = ({ children, id }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -64,11 +39,40 @@ const Section = ({ children, id }) => {
   );
 };
 
+const DarkModeToggle = () => {
+  const { darkMode, toggleDarkMode } = useThemeContext();
+
+  return (
+    // <button onClick={toggleDarkMode} style={{ position: 'fixed', top: 10, right: 10 }}>
+    //   {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+    // </button>
+    <Box
+      sx={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'right',
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        borderRadius: 1,
+        p: 3,
+        position: 'fixed', top: 10, right: 10 
+      }}
+    >
+      {darkMode ? 'dark mode' : 'light mode'}
+      <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
+        {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+    </Box>
+  );
+};
+
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeContextProvider>
       <CssBaseline />
       <Container style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+        <DarkModeToggle />
         <Grid container spacing={4} alignItems="center" justifyContent="center" minHeight="100vh">
           <Grid item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
             <Typography variant="h3" gutterBottom style={{ color: '#4CAF50', textAlign: 'center', marginTop: '40px' }}>
@@ -109,8 +113,7 @@ function App() {
           <SectionTitle title="Publications and Presentations" />
           <Publication items={publicationsData} />
         </Section>
-        <Section id="activites"><ActivitiesSection></ActivitiesSection></Section>
-        
+
         <Section id="faves">
           <SectionTitle title="My Favorite Things :)" />
           <Grid container rowSpacing={0} columnSpacing={2}>
@@ -156,10 +159,7 @@ function App() {
         </Section>
 
         <Section id="contact">
-          <Typography
-            variant="h4"
-            className="sectionTitle"
-            sx={{ marginTop: 4, textAlign: 'center' ,marginBottom: 2 }}>
+          <Typography variant="h4" className="sectionTitle" sx={{ marginTop: 4, marginBottom: 2 }}>
             <strong>Let's get in touch! My information:</strong>
           </Typography>
           <Grid container spacing={3}>
@@ -182,7 +182,7 @@ function App() {
       <footer style={{ textAlign: 'center', padding: '20px 0', backgroundColor: '#4CAF50', color: 'white' }}>
         <Typography variant="body1">&copy; 2024 Konnie. All rights reserved.</Typography>
       </footer>
-    </ThemeProvider>
+    </ThemeContextProvider>
   );
 }
 
