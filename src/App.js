@@ -49,14 +49,11 @@ const DarkModeToggle = () => {
     <Box
       sx={{
         display: 'flex',
-        width: '100%',
         alignItems: 'center',
         justifyContent: 'right',
         bgcolor: 'background.default',
         color: 'text.primary',
-        borderRadius: 1,
-        p: 3,
-        position: 'fixed', top: 10, right: 10 
+         top: 10, right: 10 
       }}
     >
       {darkMode ? 'dark mode' : 'light mode'}
