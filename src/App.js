@@ -19,6 +19,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import ActivitiesSection from './components/ActivitiesSection';
 const Section = ({ children, id }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -110,7 +111,9 @@ function App() {
           <SectionTitle title="Publications and Presentations" />
           <Publication items={publicationsData} />
         </Section>
-
+        <Section id="activities">
+          <ActivitiesSection></ActivitiesSection>
+        </Section>
         <Section id="faves">
           <SectionTitle title="My Favorite Things :)" />
           <Grid container rowSpacing={0} columnSpacing={2}>
